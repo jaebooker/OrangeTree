@@ -10,6 +10,7 @@ import SpriteKit
 class GameScene: SKScene {
     var orangeTree: SKSpriteNode!
     var orange: Orange?
+    var touchStart: CGPoint = .zero
     override func didMove(to view: SKView) {
         orangeTree =  childNode(withName: "tree") as! SKSpriteNode
     }
@@ -20,11 +21,34 @@ class GameScene: SKScene {
         //find out if screen was touched on the "orange tree"
         if atPoint(location).name == "tree" {
             orange = Orange()
+            orange?.physicsBody?.isDynamic = false
             orange?.position = location
             addChild(orange!)
-            //fill the orange with flying impulses
-            let vector = CGVector(dx: 100, dy: 0)
-            orange?.physicsBody?.applyImpulse(vector)
+            
+            //keep a record of where the screen was touched
+            touchStart = location
         }
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //find out where screen was touched
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        
+        //put an Orange on the place touched
+        orange?.position = location
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //find out where screen stopped being touched
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        
+        //find out how much the finger moved
+        let dx = touchStart.x - location.x
+        let dy = touchStart.y - location.y
+        let vector = CGVector(dx: dx, dy: dy)
+        
+        //fill the orange with flying impulses from the touch
+        orange?.physicsBody?.isDynamic = true
+        orange?.physicsBody?.applyImpulse(vector)
     }
 }
