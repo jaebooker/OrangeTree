@@ -11,8 +11,13 @@ class GameScene: SKScene {
     var orangeTree: SKSpriteNode!
     var orange: Orange?
     var touchStart: CGPoint = .zero
+    var shapeNode = SKShapeNode()
     override func didMove(to view: SKView) {
         orangeTree =  childNode(withName: "tree") as! SKSpriteNode
+        shapeNode.lineWidth = 20
+        shapeNode.lineCap = .round
+        shapeNode.strokeColor = UIColor(white: 1, alpha: 0.3)
+        addChild(shapeNode)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //find out where screen was touched
@@ -36,6 +41,12 @@ class GameScene: SKScene {
         
         //put an Orange on the place touched
         orange?.position = location
+        
+        //firing vector
+        let path = UIBezierPath()
+        path.move(to: touchStart)
+        path.addLine(to: location)
+        shapeNode.path = path.cgPath
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         //find out where screen stopped being touched
@@ -50,5 +61,7 @@ class GameScene: SKScene {
         //fill the orange with flying impulses from the touch
         orange?.physicsBody?.isDynamic = true
         orange?.physicsBody?.applyImpulse(vector)
+        // remove path from shapeNode
+        shapeNode.path = nil
     }
 }
