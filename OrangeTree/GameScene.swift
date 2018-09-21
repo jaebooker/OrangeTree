@@ -30,11 +30,11 @@ class GameScene: SKScene {
         boundary.position = .zero
         addChild(boundary)
         //method to load ski file(s)
-        let sun = SKSpriteNode(imageNamed: "Sun")
-        sun.name = "sun"
-        sun.position.x = size.width - (sun.size.width * 0.75)
-        sun.position.y = size.height - (sun.size.height * 0.75)
-        addChild(sun)
+//        let sun = SKSpriteNode(imageNamed: "Sun")
+//        sun.name = "sun"
+//        sun.position.x = size.width - (sun.size.width * 0.75)
+//        sun.position.y = size.height - (sun.size.height * 0.75)
+//        addChild(sun)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //find out where screen was touched
@@ -50,15 +50,15 @@ class GameScene: SKScene {
             //keep a record of where the screen was touched
             touchStart = location
         }
-        for _ in nodes(at: location) {
-            let n = Int(arc4random() % numOfLevels + 1)
-            if let scene = GameScene.Load(level: n) {
-                scene.scaleMode = .aspectFill
-                if let view = view {
-                  view.presentScene(scene)
-               }
-            }
-        }
+//        for _ in nodes(at: location) {
+//            let n = Int(arc4random() % numOfLevels + 1)
+//            if let scene = GameScene.Load(level: n) {
+//                scene.scaleMode = .aspectFill
+//                if let view = view {
+//                  view.presentScene(scene)
+//               }
+//            }
+//        }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         //find out where screen was touched
