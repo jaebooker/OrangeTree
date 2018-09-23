@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var shapeNode = SKShapeNode()
     var boundary = SKNode()
     var numOfLevels: UInt32 = 2
+    var currentLevel = 1
     static func Load(level: Int) -> GameScene? {
         return GameScene(fileNamed: "Level-\(level)")
     }
@@ -107,6 +108,17 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     //function used to remove Skull node
     func removeSkull(node: SKNode) {
-        node.removeFromParent()
+            node.removeFromParent()
+            currentLevel += 1
+        if currentLevel > numOfLevels {
+            print("Game Over! To Victor!")
+        } else {
+            if let scene = GameScene.Load(level: currentLevel) {
+                scene.scaleMode = .aspectFill
+            if let view = view {
+                view.presentScene(scene)
+                }
+            }
+        }
     }
 }
