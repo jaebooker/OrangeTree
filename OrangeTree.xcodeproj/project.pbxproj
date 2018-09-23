@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D48097121584F6500872947 /* oranges.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D48097021584F6500872947 /* oranges.jpg */; };
 		0D60A08D2151DFB90085DFDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60A08C2151DFB90085DFDD /* AppDelegate.swift */; };
 		0D60A0932151DFBA0085DFDD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60A0922151DFBA0085DFDD /* GameScene.swift */; };
 		0D60A0952151DFBA0085DFDD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60A0942151DFBA0085DFDD /* GameViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D48097021584F6500872947 /* oranges.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oranges.jpg; sourceTree = "<group>"; };
 		0D60A0892151DFB90085DFDD /* OrangeTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D60A08C2151DFB90085DFDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D60A0922151DFBA0085DFDD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				0D60A0C42152141A0085DFDD /* Orange.swift */,
 				0D60A0962151DFBA0085DFDD /* Main.storyboard */,
 				0D60A0992151DFBC0085DFDD /* Assets.xcassets */,
+				0D48097021584F6500872947 /* oranges.jpg */,
 				0D60A09B2151DFBC0085DFDD /* LaunchScreen.storyboard */,
 				0D60A09E2151DFBC0085DFDD /* Info.plist */,
 			);
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D60A0C12151E01D0085DFDD /* Smashing-Things.atlas in Resources */,
+				0D48097121584F6500872947 /* oranges.jpg in Resources */,
 				0D60A0C321520B930085DFDD /* Level-1.sks in Resources */,
 				0D60A0982151DFBA0085DFDD /* Main.storyboard in Resources */,
 				0D8F21E82154A8720098E1F0 /* Level-2.sks in Resources */,
